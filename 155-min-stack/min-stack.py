@@ -2,13 +2,20 @@ class MinStack:
 
     def __init__(self):
         self.ls=[]
+        self.min_hist=[]
         
 
     def push(self, val: int) -> None:
         self.ls.append(val)
+        if self.min_hist==[]:
+            self.min_hist.append(val)
+        elif val<=self.min_hist[-1]:
+            self.min_hist.append(val)
         
 
     def pop(self) -> None:
+        if self.ls[-1]==self.min_hist[-1]:
+            self.min_hist.pop(-1)
         self.ls.pop(-1)
         
 
@@ -17,7 +24,7 @@ class MinStack:
         
 
     def getMin(self) -> int:
-        return min(self.ls)
+        return self.min_hist[-1]
         
 
 
