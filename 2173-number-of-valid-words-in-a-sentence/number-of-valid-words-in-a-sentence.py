@@ -19,7 +19,6 @@ class Solution:
                         return False
                 elif not word[i].islower() and i!=len(word)-1:
                     return False
-            print(word)
             return True
         count=0
         for item in tokens:
