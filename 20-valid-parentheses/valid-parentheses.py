@@ -12,7 +12,6 @@ class Solution:
                     ls.append(item)               
             else:
                 ls.append(item)
-        print(ls)
         if ls == []:
             return True
         else:
