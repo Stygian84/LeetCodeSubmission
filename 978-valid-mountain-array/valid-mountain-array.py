@@ -21,7 +21,6 @@ class Solution:
                     continue
             else:
                 return False
-            print(count)
         if state:
             return False
         return True
