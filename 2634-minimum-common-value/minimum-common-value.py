@@ -1,6 +1,6 @@
 class Solution:
     def getCommon(self, nums1: List[int], nums2: List[int]) -> int:
-        '''
+        
         nums1=list(set(nums1))
         nums2=list(set(nums2))
         nums1.extend(nums2)
@@ -19,3 +19,4 @@ class Solution:
             else:
                 continue
         return -1
+        '''
