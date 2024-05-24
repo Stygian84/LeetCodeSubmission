@@ -2,12 +2,16 @@ class RecentCounter:
 
     def __init__(self):
         self.counter=[]
+        self.length=0
 
     def ping(self, t: int) -> int:
         self.counter.append(t)
         count=0
-        for item in self.counter:
-            if t-3000<=item<=t:
+        self.length+=1
+        for item in self.counter[::-1]:
+            if item<t-3000:
+                break
+            else:
                 count+=1
         return count
 
