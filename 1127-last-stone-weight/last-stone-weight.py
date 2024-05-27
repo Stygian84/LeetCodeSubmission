@@ -1,7 +1,7 @@
 
 class Solution:
     def lastStoneWeight(self, stones: List[int]) -> int:
-        max_heap = [] 
+        '''max_heap = [] 
         for item in stones:
             heapq.heappush(max_heap, -item)
 
@@ -12,9 +12,8 @@ class Solution:
                 heapq.heappush(max_heap, x-y)
         if len(max_heap)==0:
             return 0
-        return -max_heap[0]
+        return -max_heap[0]'''
 
-        '''
         stones.sort()
         while len(stones)>1:
             print(stones)
@@ -27,4 +26,3 @@ class Solution:
         if len(stones)==0:
             return 0
         return stones[0]
-        '''
