@@ -16,7 +16,6 @@ class Solution:
 
         stones.sort()
         while len(stones)>1:
-            print(stones)
             stones.sort()
             y=stones[-1]
             x=stones[-2]
