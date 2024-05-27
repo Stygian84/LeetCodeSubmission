@@ -9,8 +9,6 @@ class Solution:
             for i in range(length):
                 index1=dc[item1[i]]
                 index2=dc[item2[i]]
-                print(item1[i],index1)
-                print(item2[i],index2)
                 if index2<index1:
                     return False
                 else:
