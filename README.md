@@ -1,4 +1,4 @@
 # LeetCodeSubmission
 
 ## Languages
-Most of the answers are written in Python 3.x 
+Most of the answers are written in Python 3.x and Oracle for SQL Query
