@@ -2,16 +2,16 @@ class Solution:
     def sortVowels(self, s: str) -> str:
         ls=[]
         vowels="aeiouAEIOU"
+        res=[]
         for item in s:
+            res.append(item)
             if item in vowels:
                 ls.append(item)
+            
         ls.sort()
-        res=""
-
-        for item in s:
-            if item in vowels:
-                res+=ls.pop(0)
-            else:
-                res+=item
-
-        return res
+        idx=0
+        for i in range(len(res)):
+            if res[i] in vowels:
+                res[i]=ls[idx]
+                idx+=1
+        return "".join(res)
