@@ -1,8 +1,9 @@
 class Solution:
     def displayTable(self, orders: List[List[str]]) -> List[List[str]]:
-        dc={}
+        dc={} # dc key: table no , value=dict( key: menu , value: freq)
         menu=set()
         table=set()
+
         for item in orders:
             dc[item[1]]=dc.get(item[1],{})
             dc[item[1]][item[2]]=dc[item[1]].get(item[2],0)+1
