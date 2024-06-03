@@ -8,7 +8,6 @@ class Solution:
                 min_value=value
                 continue
             profit=max(value-min_value,profit)
-            print(value,min_value)
         return profit
         '''
         profit=0
