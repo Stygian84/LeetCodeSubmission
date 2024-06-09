@@ -1,6 +1,6 @@
 class Solution:
     def subarraysDivByK(self, nums: List[int], k: int) -> int:
-        def computePrefixSum(arr):
+        '''def computePrefixSum(arr):
             prefix_sum=[0]*len(arr)
             prefix_sum[0]=arr[0]
             for i in range(1,len(arr)):
@@ -12,7 +12,7 @@ class Solution:
             else:
                 return arr[r]-arr[l-1]
 
-        prefix_sum=computePrefixSum(nums)
+        prefix_sum=computePrefixSum(nums)'''
         count = 0
         prefix_sum = 0
         remainder_count = {0: 1}  
@@ -20,7 +20,7 @@ class Solution:
         for num in nums:
             prefix_sum += num
             remainder = prefix_sum % k
-            
+            print(prefix_sum,remainder,num)
            
             if remainder < 0:
                 remainder += k
