@@ -20,7 +20,6 @@ class Solution:
         for num in nums:
             prefix_sum += num
             remainder = prefix_sum % k
-            print(prefix_sum,remainder,num)
            
             if remainder < 0:
                 remainder += k
