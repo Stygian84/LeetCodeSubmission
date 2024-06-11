@@ -1,10 +1,9 @@
 class Solution:
     def largestAltitude(self, gain: List[int]) -> int:
-        progress=0
-        max_alt=0
-        for idx in range(len(gain)):
-            progress+=gain[idx]
-            if progress>max_alt:
-                max_alt=progress
-        return max_alt
-        
+        highest=0
+        step=0
+        for item in gain:
+            step+=item
+            if step>highest:
+                highest=step
+        return highest
