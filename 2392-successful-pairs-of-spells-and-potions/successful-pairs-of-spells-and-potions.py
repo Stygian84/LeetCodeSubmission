@@ -1,6 +1,14 @@
 class Solution:
     def successfulPairs(self, spells: List[int], potions: List[int], success: int) -> List[int]:
+        potions.sort()
         res=[]
+        n=len(potions)
+        for spell in spells:
+            min_potion=math.ceil(success/spell)
+            idx=bisect.bisect_left(potions,min_potion)
+            res.append(n-idx)
+        return res
+        '''res=[]
         potions.sort()
 
         def binSearch(arr,val):
@@ -14,7 +22,6 @@ class Solution:
                     l=mid+1
                 else:
                     r=mid-1
-            print(mid,res,val)
             return res
 
         n=len(potions)
@@ -29,4 +36,4 @@ class Solution:
                     count=n-1-idx
             res.append(count)
 
-        return res
+        return res'''
