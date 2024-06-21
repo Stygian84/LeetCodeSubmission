@@ -6,7 +6,7 @@ class Solution:
 
         total=0
         for word in words:
-            dc2=copy.deepcopy(dc)
+            dc2=copy.copy(dc)
             for letter in word:
                 if dc2.get(letter,0)==0:
                     break
