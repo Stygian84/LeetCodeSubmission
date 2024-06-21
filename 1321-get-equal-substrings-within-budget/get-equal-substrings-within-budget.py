@@ -5,7 +5,7 @@ class Solution:
         for a,b in zip(s,t):
             diff=abs(ord(a)-ord(b))
             prefix.append(diff)
-        print(prefix)
+            
         
         max_length=0
         total=0
