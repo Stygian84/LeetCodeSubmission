@@ -5,15 +5,13 @@ class Solution:
         total=0
         max_total=0
 
-        i=0
         for item in nums:
             while item in seen:
-                num=nums[i]
+                num=ls.popleft()
                 seen.remove(num)
                 total-=num
-                i+=1
-                
             seen.add(item)
+            ls.append(item)
             total+=item
             max_total=max(max_total,total)
         return max_total
