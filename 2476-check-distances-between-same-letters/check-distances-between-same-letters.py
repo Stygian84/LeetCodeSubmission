@@ -7,9 +7,6 @@ class Solution:
                 dc[item]=i
             else:
                 dc[item]=i-dc[item]-1
-        
-        
-        for key in dc.keys():
-            if dc[key]!=distance[key]:
-                return False
+                if dc[item]!=distance[item]:
+                    return False
         return True
