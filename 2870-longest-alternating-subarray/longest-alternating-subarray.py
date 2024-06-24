@@ -17,7 +17,8 @@ class Solution:
                         length+=1
                     else:
                         break
-                    max_length=max(max_length,length)
+                    if length>max_length:
+                        max_length=length
 
             if max_length>=2:
                 return max_length
