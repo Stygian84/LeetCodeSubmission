@@ -1,15 +1,13 @@
 class Solution:
     def similarPairs(self, words: List[str]) -> int:
         count=0
-        for i in range(len(words)-1):
-            dc=defaultdict(int)
-            for item in words[i]:
-                dc[item]+=1
-            for j in range(i+1,len(words)):
-                dc2=defaultdict(int)
-                for item in words[j]:
-                    dc2[item]+=1
-                if dc.keys()==dc2.keys():
-                    count+=1
+        dc=defaultdict(int)
+        for word in words:
+            s=list(set(word))
+            s.sort()
+            dc["".join(s)]+=1
+            
+        for key,values in dc.items():
+            count+=(values-1)*values//2
 
         return count
