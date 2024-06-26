@@ -3,37 +3,40 @@ class Solution:
         if not s or not t:
             return ""
         
-        target_counts = defaultdict(int)
-        for char in t:
-            target_counts[char] += 1
+        dc=defaultdict(int)
+        for letter in t:
+            dc[letter]+=1
         
-        required_chars = len(target_counts)
-        left, right = 0, 0
-        formed = 0
-        window_counts = defaultdict(int)
-        min_len = float('inf')
-        min_window = ""
+        n=len(s)
+        m=len(t)
+        l,r=0,0
+
+        formed=0
+        window_count=defaultdict(int)
+        min_length=math.inf
+        min_window=""
         
-        while right < len(s):
-            char = s[right]
-            window_counts[char] += 1
+
+        while r<n:
+            letter = s[r]
+            window_count[letter] += 1
+
+            if letter in dc and window_count[letter] == dc[letter]:
+                formed+=1
             
-            if char in target_counts and window_counts[char] == target_counts[char]:
-                formed += 1
-            
-            while formed == required_chars and left <= right:
-                current_len = right - left + 1
-                if current_len < min_len:
-                    min_len = current_len
-                    min_window = s[left:right+1]
+            while formed == len(dc) and l<=r:
+                current_length = r-l+1
+
+                if current_length < min_length :
+                    min_length = current_length
+                    min_window = s[l:r+1]
                 
-                window_counts[s[left]] -= 1
-                if s[left] in target_counts and window_counts[s[left]] < target_counts[s[left]]:
-                    formed -= 1
-                
-                left += 1
+                window_count[s[l]] -= 1
+                if s[l] in dc and window_count[s[l]]<dc[s[l]]:
+                    formed-=1
+                l+=1
+            r+=1
             
-            right += 1
         
         return min_window
         '''dc=defaultdict(int)
