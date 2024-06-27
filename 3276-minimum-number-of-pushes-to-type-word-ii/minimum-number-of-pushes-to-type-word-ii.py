@@ -4,15 +4,12 @@ class Solution:
         for letter in word:
             dc[letter]+=1
 
-        ls=[]
-        for value in dc.values():
-            ls.append(value)
-        ls.sort(reverse=True)
+        ls = sorted(dc.values())
 
         total=0
-        
-        for i in range(len(ls)):
-
-            total+=ls[i]*(1+i//8)
+        print(ls)
+        n=len(ls)
+        for i in range(n):
+            total+=ls[i]*(1+(n-1-i)//8)
         
         return total
