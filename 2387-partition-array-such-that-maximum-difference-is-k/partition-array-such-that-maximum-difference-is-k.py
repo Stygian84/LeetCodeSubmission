@@ -8,5 +8,5 @@ class Solution:
             if nums[i]-min_value>k:
                 min_value=nums[i]
                 count+=1
-        count+=1
-        return count
+                
+        return count+1
