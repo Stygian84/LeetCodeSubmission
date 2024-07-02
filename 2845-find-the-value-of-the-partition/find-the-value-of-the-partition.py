@@ -4,6 +4,7 @@ class Solution:
 
         res=math.inf
         for i in range(len(nums)-1):
-            res=min(nums[i+1]-nums[i],res)
+            if nums[i+1]-nums[i]<res:
+                res=nums[i+1]-nums[i]
         
         return res
