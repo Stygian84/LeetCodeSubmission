@@ -10,8 +10,13 @@ class Solution:
 
         res=math.inf
         for i in range(len(timePoints)-1):
-            res=min(convertToMin(timePoints[i+1]) - convertToMin(timePoints[i]) , res)
+            diff = convertToMin(timePoints[i+1]) - convertToMin(timePoints[i])
+            if diff<res:
+                res=diff
         
-        res=min(convertToMin(timePoints[0])+24*60-convertToMin(timePoints[-1]) , res)
+        circular_val = convertToMin(timePoints[0])+24*60-convertToMin(timePoints[-1]) 
+    
+        if circular_val<res:
+            res = circular_val
 
         return res
