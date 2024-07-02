@@ -10,17 +10,18 @@ class Solution:
                 ls=[int(digit)]+ls
 
         num=ls+num
-        num1=0
-        for i in range(len(num)):
-            num1=num1*10+num[i]
-            
-        ls=[]
-        while num1>=10:
-            value=num1%10
-            ls.append(value)
-            num1//=10
-        ls.append(num1)
-        ls.reverse()
-        return ls
+        carry = 0
+        for i in range(len(num) - 1, -1, -1):
+            num[i] += carry
+            if num[i] >= 10:
+                carry = num[i] // 10
+                num[i] %= 10
+            else:
+                carry = 0
+        
+        if carry > 0:
+            num = list(map(int, str(carry))) + num
+
+        return num
 
     
