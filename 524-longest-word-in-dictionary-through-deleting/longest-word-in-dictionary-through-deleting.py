@@ -1,6 +1,6 @@
 class Solution:
     def findLongestWord(self, s: str, dictionary: List[str]) -> str:
-        dictionary.sort()
+        dictionary.sort(key=lambda x: (-len(x), x))
 
         def check(word):
             i,j=0,0
@@ -13,6 +13,6 @@ class Solution:
         
         res=""
         for item in dictionary:
-            if check(item) and len(item)>len(res):
-                res=item
+            if check(item):
+                return item
         return res
