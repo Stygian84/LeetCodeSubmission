@@ -16,7 +16,6 @@ class Solution:
                 total=0
             else:
                 total+=slow.val
-            print(total)
             slow=slow.next
 
         head=head.next
