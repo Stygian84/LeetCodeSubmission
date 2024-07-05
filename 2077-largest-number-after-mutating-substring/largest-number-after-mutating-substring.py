@@ -1,22 +1,21 @@
 class Solution:
     def maximumNumber(self, num: str, change: List[int]) -> str:
-        dc = {}
-        for i in range(len(change)):
-            dc[str(i)] = str(change[i])
         
         res=""
         flag=None
         for digit in num:
-            if dc[digit]==digit:
-                res+=digit
+            digit=int(digit)
+            replacement=change[digit]
+            if replacement==digit:
+                res+=str(digit)
                 continue
-            if (flag==None or flag==True) and dc[digit] >= digit:
-                res+=dc[digit]
+            if (flag==None or flag==True) and replacement >= digit:
+                res+=str(replacement)
                 flag=True
             else:
                 if flag==True:
                     flag=False
-                res+=digit
+                res+=str(digit)
         return res
         '''
         "214010"
