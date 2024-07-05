@@ -1,10 +1,11 @@
 class Solution:
     def minFlips(self, target: str) -> int:
-        n=len(target)
         count=0
 
-        for i in range(n):
-            if (count%2==1 and target[i]=="0") or (count%2==0 and target[i]=="1"):
+        for bit in target:
+            if (count%2==1 and bit=="0"): 
+                count+=1
+            elif(count%2==0 and bit=="1"):
                 count+=1
         return count
 
