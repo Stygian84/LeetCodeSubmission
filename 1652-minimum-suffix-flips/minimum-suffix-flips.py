@@ -1,12 +1,13 @@
 class Solution:
     def minFlips(self, target: str) -> int:
-        count=0
+        count = 0
+        prev_bit = '0'
 
         for bit in target:
-            if (count%2==1 and bit=="0"): 
-                count+=1
-            elif(count%2==0 and bit=="1"):
-                count+=1
+            if bit != prev_bit:
+                count += 1
+                prev_bit = bit
+
         return count
 
             
