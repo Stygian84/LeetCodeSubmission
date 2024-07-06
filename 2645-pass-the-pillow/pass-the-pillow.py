@@ -1,19 +1,8 @@
 class Solution:
     def passThePillow(self, n: int, time: int) -> int:
-
-        pointer=1
-        forward=True
-
-        for i in range(time):
-            if forward and pointer<n:
-                pointer+=1
-            elif pointer==n:
-                forward=False
-                pointer-=1
-            elif not forward and pointer>1:
-                pointer-=1
-            else:
-                forward=True
-                pointer+=1
-
-        return pointer
+        #n-1 n-3 n-2 n-1    1
+        #n-1 n n-1 n-2 n-3  0
+        if (time//(n-1))%2==1:
+            return n-time%(n-1)
+        else:
+            return time%(n-1)+1
