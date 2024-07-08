@@ -7,10 +7,8 @@ class Solution:
 
         while l<r:
             mid = (l+r)//2
-            if arr[mid]>arr[mid-1] and arr[mid]>arr[mid+1]:
-                return mid
-            elif arr[mid-1]>arr[mid]>arr[mid+1]:
-                r=mid
+            if arr[mid]<arr[mid+1]:
+                l=mid+1
             else:
-                l=mid
-        return -1
+                r=mid
+        return l
