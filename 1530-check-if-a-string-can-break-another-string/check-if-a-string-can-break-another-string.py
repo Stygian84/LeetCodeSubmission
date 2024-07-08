@@ -10,4 +10,6 @@ class Solution:
                 decreasing=False
             elif ord(a)<ord(b):
                 increasing=False
+            if not increasing and not decreasing:
+                return False
         return increasing or decreasing
