@@ -11,9 +11,18 @@
 
 class Solution:
     def findSolution(self, customfunction: 'CustomFunction', z: int) -> List[List[int]]:
-        res=[]
-        for x in range(1,101):   
-            for y in range(1,101):
-                if customfunction.f(x,y)==z:
-                    res.append([x,y])
+        res = []
+        x, y = 1, 101  
+
+        while x <= 101 and y >= 1:
+            value = customfunction.f(x, y)
+            if value == z:
+                res.append([x, y])
+                x += 1  
+                y -= 1  
+            elif value < z:
+                x += 1  
+            else:
+                y -= 1  
+        
         return res
