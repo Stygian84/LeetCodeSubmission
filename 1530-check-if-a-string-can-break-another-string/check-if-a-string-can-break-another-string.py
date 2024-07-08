@@ -8,8 +8,10 @@ class Solution:
         for a,b in zip(ls1,ls2):
             if ord(a)>ord(b):
                 decreasing=False
+                if not increasing:
+                    return False
             elif ord(a)<ord(b):
                 increasing=False
-            if not increasing and not decreasing:
-                return False
+                if not decreasing:
+                    return False
         return increasing or decreasing
