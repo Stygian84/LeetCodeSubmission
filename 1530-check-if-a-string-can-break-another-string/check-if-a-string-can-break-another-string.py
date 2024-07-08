@@ -1,7 +1,7 @@
 class Solution:
     def checkIfCanBreak(self, s1: str, s2: str) -> bool:
-        ls1 = sorted(list(s1))
-        ls2 = sorted(list(s2))
+        ls1 = sorted(s1)
+        ls2 = sorted(s2)
 
         increasing=True
         decreasing=True
