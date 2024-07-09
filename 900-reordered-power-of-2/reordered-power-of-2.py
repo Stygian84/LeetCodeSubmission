@@ -1,5 +1,12 @@
 class Solution:
     def reorderedPowerOf2(self, n: int) -> bool:
+        def is_permutation(x, y):
+            return Counter(str(x)) == Counter(str(y))
+        
+        powers_of_2 = [2**i for i in range(31)]
+        
+        return any(is_permutation(n, power) for power in powers_of_2)
+        '''
         num_str=str(n)
         n_digits=len(num_str)
         temp_ls=[]
@@ -16,7 +23,7 @@ class Solution:
                 
                 power += 1
         find_power_range(n_digits)
-        
+
         if n<=10:
             return n in temp_ls
         ls = list(num_str)
@@ -25,4 +32,4 @@ class Solution:
         
         for i in range(len(temp_ls)):
             temp_ls[i]="".join(sorted(list(str(temp_ls[i]))))
-        return sorted_num in temp_ls
+        return sorted_num in temp_ls'''
