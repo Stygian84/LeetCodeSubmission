@@ -1,22 +1,15 @@
 class Solution:
     def numSmallerByFrequency(self, queries: List[str], words: List[str]) -> List[int]:
         def f(s):
-            ls=sorted(s)
-            count=0
-            for item in ls:
-                if item!=ls[0]:
-                    return count
-                count+=1
+            min_char = min(s)
+            count = s.count(min_char)
             return count
         
+        word_freqs = sorted(f(word) for word in words)
         res=[]
         
         for query in queries:
-            count=0
             query_freq=f(query)
-
-            for word in words:
-                if f(word)>query_freq:
-                    count+=1
+            count = len(word_freqs) - bisect.bisect_right(word_freqs, query_freq)
             res.append(count)
         return res
