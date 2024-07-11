@@ -1,6 +1,20 @@
 class Solution:
     def minSwaps(self, s: str) -> int:
-        if s=="":
+        balance = 0  
+        swaps = 0  
+
+        for bracket in s:
+            if bracket == '[':
+                balance += 1
+            else:
+                balance -= 1
+            
+            if balance < 0:
+                swaps += 1
+                balance += 2 
+
+        return swaps
+        '''if s=="":
             return 0
         i,j = 0,len(s)-1
 
@@ -23,5 +37,5 @@ class Solution:
                 s[j],s[i]=s[i],s[j]
                 count+=1
             i+=1
-        return count
+        return count'''
 
