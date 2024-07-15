@@ -1,15 +1,15 @@
 class Solution:
     def halveArray(self, nums: List[int]) -> int:
         init_total=sum(nums)
-        
-        count=0
+        target = init_total/2
+
+        max_heap=[-num for num in nums]
+        heapq.heapify(max_heap)
+
         total=init_total
+        count=0
 
-        max_heap=[]
-        for num in nums:
-            heapq.heappush(max_heap,-num)
-
-        while total>init_total/2:
+        while total>target:
             count+=1
 
             largest = -heapq.heappop(max_heap)
