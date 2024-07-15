@@ -17,9 +17,10 @@ class Solution:
                     nums[i]-=diff
                     even_count+=diff
                 continue
-            while nums[i]>=nums[i-1] or nums[i]>=nums[i+1]:
-                nums[i]-=1
-                even_count+=1
+            if nums[i]>=nums[i-1] or nums[i]>=nums[i+1]:
+                diff = nums[i] - min(nums[i-1],nums[i+1]) + 1
+                nums[i]-=diff
+                even_count+=diff
                     
         odd_count=0
         for i in range(1,len(arr),2):
@@ -29,9 +30,10 @@ class Solution:
                     arr[i]-=diff
                     odd_count+=diff
                 continue
-            while arr[i]>=arr[i-1] or arr[i]>=arr[i+1]:
-                arr[i]-=1
-                odd_count+=1
+            if arr[i]>=arr[i-1] or arr[i]>=arr[i+1]:
+                diff = arr[i] - min(arr[i-1],arr[i+1]) + 1
+                arr[i]-=diff
+                odd_count+=diff
                     
         if odd_count<even_count:
             return odd_count
