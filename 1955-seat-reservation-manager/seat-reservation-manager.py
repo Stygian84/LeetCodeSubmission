@@ -6,8 +6,7 @@ class SeatManager:
 
     def reserve(self) -> int:
         if len(self.ls)>0:
-            res=self.ls[0]
-            heapq.heappop(self.ls)
+            return heapq.heappop(self.ls)
         else:
             res=self.pointer
             self.pointer+=1
