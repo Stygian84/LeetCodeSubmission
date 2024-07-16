@@ -2,8 +2,7 @@ class SeatManager:
 
     def __init__(self, n: int):
         self.ls = []
-        for i in range(1,n+1):
-            heapq.heappush(self.ls,i)
+        [heapq.heappush(self.ls, item) for item in range(1,n+1)]
 
     def reserve(self) -> int:
         return heapq.heappop(self.ls)
