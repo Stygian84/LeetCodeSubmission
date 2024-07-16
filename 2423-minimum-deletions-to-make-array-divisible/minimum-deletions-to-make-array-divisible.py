@@ -1,7 +1,16 @@
 class Solution:
     def minOperations(self, nums: List[int], numsDivide: List[int]) -> int:
-        
-        s=set()
+        num=numsDivide[0]
+
+        for i in range(1,len(numsDivide)):
+            num=math.gcd(num,numsDivide[i])
+            
+        nums.sort()
+        for i, val in enumerate(nums):
+            if num % val == 0:
+                return i
+        return -1
+        '''s=set()
 
         heapq.heapify(nums)
         count=0
@@ -23,4 +32,4 @@ class Solution:
 
         if nums:
             return count
-        return -1
+        return -1'''
