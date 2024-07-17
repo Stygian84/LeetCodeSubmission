@@ -1,6 +1,19 @@
 class Solution:
     def minSteps(self, s: str, t: str) -> int:
-        s=list(s)
+        countS=Counter(s)
+        countT=Counter(t)
+
+        count = 0
+        for a in countS:
+            if a in countT:
+                count+=min(countS[a],countT[a])
+
+        count = len(s)+len(t)-2*count
+
+        return count
+
+
+        '''s=list(s)
         t=list(t)
         s.sort()
         t.sort()
@@ -27,7 +40,7 @@ class Solution:
         
         count += len(s[i:])
         count += len(t[j:])
-        return count
+        return count'''
 
             
         '''countS=Counter(s)
