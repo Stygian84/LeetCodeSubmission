@@ -18,16 +18,15 @@ class UndergroundSystem:
         
         #add to self.avg
         if (a,b) in self.avg:
-            prev_total = self.avg[(a,b)][0]
-            prev_count = self.avg[(a,b)][1]
+            prev_total,prev_count = self.avg[(a,b)]
 
             self.avg[(a,b)] = [prev_total + (c-d), prev_count+1] 
         else:
             self.avg[(a,b)] = [c-d,1]
         
     def getAverageTime(self, startStation: str, endStation: str) -> float:
-        return self.avg[(startStation,endStation)][0] / self.avg[(startStation,endStation)][1]
-
+        x,y=self.avg[(startStation,endStation)]
+        return x/y
 # Your UndergroundSystem object will be instantiated and called as such:
 # obj = UndergroundSystem()
 # obj.checkIn(id,stationName,t)
