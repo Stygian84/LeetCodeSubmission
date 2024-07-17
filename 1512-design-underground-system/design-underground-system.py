@@ -10,10 +10,9 @@ class UndergroundSystem:
         
 
     def checkOut(self, id: int, stationName: str, t: int) -> None:
-        a=self.dc[id][0]
+        a,d=self.dc[id]
         b=stationName
         c=t
-        d=self.dc[id][1]
 
         #self.dc[id]=[a+b,c-d]
         
