@@ -4,9 +4,7 @@ class Solution:
         ls=list(s)
 
         while i<j:
-            if ls[i]==ls[j]:
-                pass
-            else:
+            if ls[i]!=ls[j]:
                 if ls[i]<ls[j]:
                     ls[j]=ls[i]
                 else:
