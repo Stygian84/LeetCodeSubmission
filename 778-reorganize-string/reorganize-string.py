@@ -18,13 +18,10 @@ class Solution:
             
             prev_count, prev_char = count + 1, char  
         
-        res_str = ''.join(res)
-        if len(res_str)!=len(s):
+        if len(res)!=len(s):
             return ""
-        for i in range(1, len(res_str)):
-            if res_str[i] == res_str[i - 1]:
-                return ""
-        return res_str
+        return ''.join(res)
+        
         '''dc={}
         for letter in s:
             dc[letter]=dc.get(letter,0)+1
