@@ -10,13 +10,11 @@ class Solution:
         if c!=0:
             heapq.heappush(max_heap,(-c,'c'))            
             
-        prev_letter = None
         res = []
         n = a+b+c
         count = 0
         
         while max_heap:
-            print(max_heap)
             freq,letter = heapq.heappop(max_heap)
             
             if res and letter==res[-1]:
