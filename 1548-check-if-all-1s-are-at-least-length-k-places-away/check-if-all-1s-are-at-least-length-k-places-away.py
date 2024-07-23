@@ -3,7 +3,6 @@ class Solution:
         
         dist=None
         for item in nums:
-            print(dist)
             if item==1:
                 if dist and dist<=k:
                     return False
