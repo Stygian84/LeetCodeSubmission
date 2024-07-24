@@ -1,27 +1,13 @@
 class Solution:
     def checkPossibility(self, nums: List[int]) -> bool:
-        nums2=nums[:]
-
-        count=0
-        for i in range(1,len(nums)):
-            if nums[i]<nums[i-1]:
-                count+=1
-                nums[i-1]=nums[i]
-        for i in range(1,len(nums)):
-            if nums[i]<nums[i-1]:
-                count+=1
-                nums[i-1]=nums[i]
-                
-        count2 = 0
-        for i in range(len(nums2)-1,0,-1):
-            if nums2[i-1]>nums2[i]:
-                count2+=1
-                nums2[i]=nums2[i-1]
-        for i in range(len(nums2)-1,0,-1):
-            if nums2[i-1]>nums2[i]:
-                count2+=1
-                nums2[i]=nums2[i-1]
-
-        if min(count,count2)>1:
-            return False
+        count = 0
+        for i in range(1, len(nums)):
+            if nums[i] < nums[i - 1]:
+                if count == 1:
+                    return False
+                count += 1
+                if i == 1 or nums[i] >= nums[i - 2]:
+                    nums[i - 1] = nums[i]
+                else:
+                    nums[i] = nums[i - 1]
         return True
