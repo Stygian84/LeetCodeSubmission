@@ -17,5 +17,5 @@ class Solution:
                 else:
                     dp[i][j] = min(dp[i][j-1],dp[i-1][j]) + value
         
-        print(dp)
+        #print(dp)
         return dp[-1][-1]
