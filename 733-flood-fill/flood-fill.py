@@ -3,6 +3,7 @@ class Solution:
         original = image[sr][sc]
         if original == color:
             return image
+            
         def dfs(grid,x,y,visited,color):
             if (x,y) in visited:
                 return
