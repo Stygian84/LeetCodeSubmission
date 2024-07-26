@@ -10,7 +10,6 @@ class Solution:
                 nx, ny = x + dx, y + dy
                 if 0 <= nx < len(grid) and 0 <= ny < len(grid[0]) and grid[nx][ny] == "1":
                     dfs_grid(grid, nx, ny, visited)
-            return 
 
         visited = set()
         count = 0
