@@ -1,7 +1,7 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         
-        n = len(nums)
+        '''n = len(nums)
         res = []
         new = []
         for i in range(n):
@@ -20,14 +20,14 @@ class Solution:
             else:
                 r-=1
                 while l<r and new[r][0]==new[r+1][0]:
-                    r-=1
+                    r-=1'''
+        ls = []
+        dc = {}
 
-        '''ls = []
-        for idx in range(0, len(nums)):
+        for idx in range(len(nums)):
             new_num = target - nums[idx]
-            if new_num in nums[idx + 1 :]:
+            if new_num in dc:
                 ls.append(idx)
-                ls.append(nums[idx + 1 :].index(new_num) + idx + 1)
+                ls.append(dc[new_num])
                 return ls
-            else:
-                continue'''
+            dc[nums[idx]]=idx
