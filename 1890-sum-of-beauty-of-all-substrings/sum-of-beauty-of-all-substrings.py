@@ -1,6 +1,15 @@
 class Solution:
     def beautySum(self, s: str) -> int:
         n = len(s)
+        total=0
+        for i in range(n):
+            dc = {}
+            for j in range(i,n):
+                dc[s[j]] = dc.get(s[j],0)+1
+                total += max(dc.values())-min(dc.values())
+        return total
+
+        '''n = len(s)
         prefix_sum = [[0]*26 for _ in range(n+1)]
 
         for i in range(n):
@@ -13,7 +22,6 @@ class Solution:
         
         for i in range(n):
             for j in range(i+1,n+1):
-                substring = s[i:j]
                 maximum = -math.inf
                 minimum = math.inf
 
@@ -25,29 +33,4 @@ class Solution:
 
                 if maximum != -math.inf and minimum != math.inf:
                     total += maximum - minimum
-        return total
-        '''ls = deque()
-
-        dc = defaultdict(int)
-
-        total = 0
-        for letter in s:
-            ls.append(letter)
-            dc[letter]+=1
-            if len(dc)==1:
-                continue
-            total += max(dc.values()) - min(dc.values())
-            print(dc, total , ls)
-        
-        for i in range(len(ls)):
-            letter = ls.popleft()
-            dc[letter]-=1
-            if dc[letter]==0:
-                del dc[letter]
-            if len(dc)==1:
-                break
-            total+= max(dc.values()) - min(dc.values())
-            print(dc, total, ls)
-
         return total'''
-            
