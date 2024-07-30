@@ -7,5 +7,6 @@ class Solution:
             elif count:
                 ans += 1
                 count -= 1
+                
         return ans
         
