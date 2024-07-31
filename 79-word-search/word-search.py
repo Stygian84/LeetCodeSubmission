@@ -1,9 +1,24 @@
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
+        n,m = len(board),len(board[0])
+        #check if possible
+        freq_board = defaultdict(int)
+        freq_word = Counter(word)
+        for i in range(n):
+            for j in range(m):
+                freq_board[board[i][j]]+=1
+        for key in freq_word:
+            if key not in freq_board:
+                return False
+            else:
+                if freq_word[key]>freq_board[key]:
+                    return False
+
+        #backtrack
         direction = [(0,1),(0,-1),(1,0),(-1,0)]
         
-        n,m = len(board),len(board[0])
         res = False
+
         def backtrack(x,y,path,visited):
             nonlocal res
             visited.add((x,y))
