@@ -21,6 +21,8 @@ class Solution:
 
         def backtrack(x,y,path,visited):
             nonlocal res
+            if res:
+                return
             visited.add((x,y))
             if len(path) == len(word):
                 res = True
