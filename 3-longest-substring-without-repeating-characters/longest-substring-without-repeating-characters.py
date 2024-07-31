@@ -4,16 +4,18 @@ class Solution:
         temp_str=deque()
         max_length=0
 
-        dc={} #store existing character
+        dc=set() #store existing character
         for letter in s:
-            if temp_str and letter not in dc.keys():
+            if temp_str and letter not in dc:
                 pass
             else:
                 max_length=max(max_length,len(temp_str))
-                while letter in dc.keys():
-                    del dc[temp_str.popleft()]
+                while letter in dc:
+                    dc.remove(temp_str.popleft())
+                    #del dc[temp_str.popleft()]
             temp_str.append(letter)
-            dc[letter]=0
+            #dc[letter]=0
+            dc.add(letter)
             
         max_length=max(max_length,len(temp_str))
         return max_length
