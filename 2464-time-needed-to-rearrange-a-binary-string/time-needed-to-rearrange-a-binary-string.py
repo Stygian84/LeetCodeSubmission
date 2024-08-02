@@ -1,6 +1,16 @@
 class Solution:
     def secondsToRemoveOccurrences(self, s: str) -> int:
-        n = len(s)
+
+        res = 0
+        count = 0
+        for item in s:
+            if item=="0":
+                count+=1
+            else:
+                if count>0:
+                    res=max(res+1,count)
+        return res
+        '''n = len(s)
         ls = list(s)
 
         flag_count = 1
@@ -21,4 +31,4 @@ class Solution:
                     flag_count += 1
 
 
-        return count-1
+        return count-1'''
