@@ -9,7 +9,6 @@ class Solution:
         count = 0
         i = 0
 
-        print(points)
         while i<n:
             a,b = points[i]
 
