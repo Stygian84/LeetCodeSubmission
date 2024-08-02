@@ -16,7 +16,6 @@ class Solution:
                 i+=1
             count+=1
             i+=1
-            print(b)
         return count
         '''res=[points[0]]
         if len(points)==1:
