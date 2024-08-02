@@ -16,7 +16,8 @@ class Solution:
             window.append(nums[i])
             k+=1
             if k==n:
-                res = min(res,count)
+                if count<res:
+                    res = count
                 if window.popleft() == 0:
                     count-=1
                 k-=1
