@@ -1,29 +1,23 @@
 class Solution:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
-        
-        res = set()
+        counter  = Counter(nums)
+        res = []
         n = len(nums)
-        seen = set()
-        def backtrack(start,path):
+        def backtrack(path, current):
             if len(path)==n:
-                res.add(tuple(path[:]))
+                res.append(path[:])
                 return
             
-            for i in range(n):
-                if i not in seen:
-                    seen.add(i)
-                    path.append(nums[i])
-                    backtrack(i,path)
+            for num in counter:
+                if current.get(num,0) < counter[num]:
+                    current[num]+=1
+                    path.append(num)
+                    backtrack(path,current)
                     path.pop()
-                    seen.remove(i)
+                    current[num]-=1
 
-        for i in range(n):
-            backtrack(i,[])
-
-        result = []
-        for item in res:
-            result.append(list(item))
-        return result
+        backtrack([],defaultdict(int))
+        return res
 
 
 
