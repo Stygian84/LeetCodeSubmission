@@ -7,7 +7,7 @@ class Solution:
         ls = sorted(dc.values())
 
         total=0
-        print(ls)
+        
         n=len(ls)
         for i in range(n):
             total+=ls[i]*(1+(n-1-i)//8)
