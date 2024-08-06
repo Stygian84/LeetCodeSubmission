@@ -3,16 +3,16 @@ class Solution:
         if finalSum%2==1:
             return []
 
-        total = 0
+        current = 2
         res = []
-        for i in range(2,finalSum+1,2):
-            if total+i > finalSum:
-                total-=res.pop()
+        while finalSum>=current:
+            res.append(current)
+            finalSum-=current
+            current+=2
+
+        if finalSum > 0:
+            res[-1] += finalSum
             
-            total+=i
-            res.append(i)
-            if total == finalSum:
-                return res
         return res
         '''if finalSum%2==1:
             return []
