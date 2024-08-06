@@ -9,16 +9,12 @@ class Solution:
                 return
             
             for i in range(10):
-                if not path and i!=0:
+                if abs(i-int(path[-1]))==k:
                     path.append(str(i))
                     backtrack(path)
                     path.pop()
-                if path:
-                    if abs(i-int(path[-1]))==k:
-                        path.append(str(i))
-                        backtrack(path)
-                        path.pop()
 
 
-        backtrack([])
+        for i in range(1,10):
+            backtrack([str(i)])
         return res
