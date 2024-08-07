@@ -4,29 +4,22 @@ class Solution:
         minimum = math.inf
         n = len(toppingCosts)
 
-        def backtrack(topping,total,start):
+        def backtrack(total,start):
             nonlocal minimum,res,target
             
-            if abs(total-target)<=minimum:
-                minimum = abs(total-target)
-                if abs(res-target) == minimum:
-                    res=min(res,total)
-                else:
+            if abs(total - target) <= minimum:
+                if abs(total - target) < minimum or total < res:
+                    minimum = abs(total - target)
                     res = total
-
-            if start == n:
+            
+            if start == n or total >= target:
                 return
 
-            for i in range(start,len(toppingCosts)):
-                t = toppingCosts[i]
-                backtrack(topping,total,i+1)
-                if i not in topping:
-                    topping.add(i)
-                    backtrack(topping,total+t,i+1)
-                    backtrack(topping,total+t*2,i+1)
-                    topping.remove(i)
+            backtrack(total, start + 1)
+            backtrack(total + toppingCosts[start], start + 1)
+            backtrack(total + toppingCosts[start] * 2, start + 1)
 
         for b in baseCosts:
-            backtrack(set(),b,0)
+            backtrack(b,0)
 
         return res
