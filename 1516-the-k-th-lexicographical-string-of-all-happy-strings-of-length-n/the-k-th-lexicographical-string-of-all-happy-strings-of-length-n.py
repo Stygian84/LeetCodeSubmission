@@ -5,7 +5,6 @@ class Solution:
         def backtrack(path):
             nonlocal k,res
             if len(path)==n:
-                print(path,k)
                 k-=1
                 if k==0:
                     res="".join(path[:])
