@@ -12,24 +12,20 @@ class Solution:
             if res:
                 return
 
-            for i in range(start,n+1):
+            for i in range(start,n):
                 str_num = s[start:i+1]
                 if not str_num:
-                    continue
-                if not path:
-                    path.append(str_num)
-                    backtrack(i+1,path)
-                    path.pop()
                     continue
                 number = int(str_num)
                 if int(path[-1])-number==1:
                     path.append(str_num)
                     backtrack(i+1,path)
                     path.pop()
+        
+        for i in range(n):
+            str_num = s[:i+1]
+            backtrack(i+1,[str_num])
 
-
-
-        backtrack(0,[])
         if res:
             return True
         return False
