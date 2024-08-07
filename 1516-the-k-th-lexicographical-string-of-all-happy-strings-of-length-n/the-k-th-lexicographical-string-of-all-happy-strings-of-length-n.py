@@ -25,5 +25,4 @@ class Solution:
 
 
         backtrack([])
-        print(res)
         return res
