@@ -4,15 +4,16 @@ class Solution:
         if n[0]=="-":
             sign = -1
         
+        str_x = str(x)
         for i in range(len(n)):
             digit = n[i]
             if digit == "-":
                 continue
             if sign == -1:
-                if digit>str(x):
-                    return n[:i] + str(x) + n[i:]
+                if digit>str_x:
+                    return n[:i] + str_x + n[i:]
             else:
-                if digit<str(x):
-                    return n[:i] + str(x) + n[i:]
+                if digit<str_x:
+                    return n[:i] + str_x + n[i:]
 
-        return n + str(x)
+        return n + str_x
