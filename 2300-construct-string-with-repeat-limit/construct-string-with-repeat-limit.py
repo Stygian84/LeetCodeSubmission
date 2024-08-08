@@ -4,7 +4,7 @@ class Solution:
         heap = []
 
         for letter in dc:
-            heapq.heappush( heap, (-ord(letter),-dc[letter]) )
+            heapq.heappush( heap, (-ord(letter),dc[letter]) )
         
         n= len(s)
         res = []
@@ -12,8 +12,8 @@ class Solution:
             letter,freq = heapq.heappop(heap)
             letter = chr(-letter)
 
-            if (-freq) <= repeatLimit:
-                res.append( letter*(-freq) )
+            if freq <= repeatLimit:
+                res.append( letter*(freq) )
                 continue
             
             else:
@@ -23,10 +23,10 @@ class Solution:
                     second_letter = chr(-second_letter)
 
                     res.append( second_letter )
-                    if second_freq != -1:
-                        heapq.heappush( heap, (-ord(second_letter),second_freq+1) )
-                    if freq+repeatLimit < 0:
-                        heapq.heappush( heap, (-ord(letter),freq+repeatLimit) )
+                    if second_freq-1 > 0:
+                        heapq.heappush( heap, (-ord(second_letter),second_freq-1) )
+                    if freq-repeatLimit > 0:
+                        heapq.heappush( heap, (-ord(letter),freq-repeatLimit) )
                 else:
                     return "".join(res)
 
