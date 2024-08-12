@@ -16,14 +16,13 @@ class Solution:
             
             else: # lose
                 count=1
-                i=j
+                i=j 
                 j=i+1
         
-            if j==n:
-                j=0
-            if j==i:
-                j+=1
+            if j == n: 
+                j = 0
+            if j == i:
+                j += 1
 
             if count == k:
                 return arr[i]
-        return arr[i]
