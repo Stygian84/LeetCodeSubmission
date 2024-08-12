@@ -10,7 +10,6 @@ class Solution:
 
         result = []
         for q in queries:
-            
             for i in range(m):
                 if res[i]==q:
                     result.append(i)
