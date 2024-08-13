@@ -7,7 +7,7 @@ class Solution:
         n = len(moveFrom)
         while i < n:
             if moveTo[i]!=moveFrom[i]:
-                dc[moveTo[i]]=dc.get(moveFrom[i],0)+1
+                dc[moveTo[i]]=1
                 dc[moveFrom[i]]=0
             i+=1
 
