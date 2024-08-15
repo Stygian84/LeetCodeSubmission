@@ -15,7 +15,6 @@ class MyCalendar:
                 if start<=a and (end>a or end>b):
                     return False
             self.ls.append((start,end))
-            self.ls.sort()
             return True
 
 
