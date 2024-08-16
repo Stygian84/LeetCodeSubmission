@@ -7,7 +7,7 @@ class Solution:
         
         for a,b in operations:
             idx[b] = idx[a]
-            del idx[a]
+            idx[a] = []
 
         res = [0]*len(nums)
 
