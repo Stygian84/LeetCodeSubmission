@@ -6,7 +6,7 @@ function memoize(fn) {
     let memo={}
     return function(...args) {
         let key = fn.name+JSON.stringify(args)
-        if (memo[key]===undefined){
+        if (!(key in memo)){
             memo[key]=fn(...args);
         }
         return memo[key]
