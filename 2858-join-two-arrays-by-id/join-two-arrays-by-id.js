@@ -4,23 +4,33 @@
  * @return {Array}
  */
 var join = function(arr1, arr2) {
-    let map = new Map();
+    let dict = {}
 
-    arr1.forEach(obj => {
-        map.set(obj.id, { ...obj });
-    });
+    for (i=0;i<arr2.length;i++){
+        dict[arr2[i].id]=arr2[i]
+    }
 
-    arr2.forEach(obj => {
-        if (map.has(obj.id)) {
-            let existingObj = map.get(obj.id);
-            Object.assign(existingObj, obj);
-        } else {
-            map.set(obj.id, { ...obj });
+    for (i=0;i<arr1.length;i++){
+        
+        if (arr1[i].id in dict){
+            for (let key in arr1[i]){
+                if (!(key in dict[arr1[i].id])){
+                    dict[arr1[i].id][key] = arr1[i][key]
+                }
+            }
         }
-    });
+        else{
+            dict[arr1[i].id]=arr1[i]
+        }        
+    }
 
-    let mergedArray = Array.from(map.values());
-    mergedArray.sort((a, b) => a.id - b.id);
+    res = []
+    for (key in dict){
+        res.push(dict[key])
+    }
 
-    return mergedArray;
+    res.sort((a,b)=>a.id-b.id)
+
+    return res
+
 };
