@@ -4,18 +4,22 @@
  * @return {Array}
  */
 var chunk = function(arr, size) {
-    let res=[]
-    let temp_ls=[]
-    for (i=0;i<arr.length;i++){
-        temp_ls.push(arr[i])
-        if (temp_ls.length===size){
-            res.push(temp_ls)
-            temp_ls=[]
+    let res = []
+    let j = 0
+    
+    while (j<arr.length){
+        let temp = []
+        for (i=0; i<size;i++){
+            temp.push(arr[j])
+            j++
+            if (j>=arr.length){
+                break
+            }
         }
+        res.push(temp)
     }
-    if (temp_ls.length>=1 && temp_ls.length<size){
-        res.push(temp_ls)
-    }
+
     return res
+    
     
 };
