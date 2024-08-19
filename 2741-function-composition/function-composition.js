@@ -3,14 +3,14 @@
  * @return {Function}
  */
 var compose = function(functions) {
-    let ls=functions
+    
     return function(x) {
-        ls.reverse()
-        res=x
-        for(i=0;i<ls.length;i++){
-            res=ls[i](res)
+        let res = x
+        for (i=functions.length-1;i>=0;i--){
+            res = functions[i](res)
         }
         return res
+        
     }
 };
 
