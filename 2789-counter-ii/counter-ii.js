@@ -3,27 +3,19 @@
  * @return { increment: Function, decrement: Function, reset: Function }
  */
 var createCounter = function(init) {
-    const initial_value=init
-    var modified_value=init
-
-    function increment(){
-        modified_value+=1
-        return modified_value
-    }
-    function decrement(){
-        modified_value-=1
-        return modified_value
-    }
-    function reset(){
-        modified_value=initial_value
-        return initial_value
-    }
+    let x=init;
     return {
-        increment: increment,
-        decrement: decrement,
-        reset: reset
-    };
-    
+        increment : function(){
+            return ++x
+        },
+        decrement : function(){
+            return --x
+        },
+        reset : function(){
+            x=init
+            return x
+        }
+    }
 };
 
 /**
