@@ -3,17 +3,17 @@
  * @return {Object}
  */
 Array.prototype.groupBy = function(fn) {
-    let groups={}
-
-    this.forEach(item=>{
-        let key=fn(item)
-        if (groups[key]){
-            groups[key].push(item)
-        }else{
-            groups[key]=[item]
+    let res = {}
+    for (i=0;i<this.length;i++){
+        let key = fn(this[i])
+        if (key in res){
+            res[key].push(this[i])
         }
-    })
-    return groups
+        else{
+            res[key]=[this[i]]
+        }
+    }
+    return res
 };
 
 /**
