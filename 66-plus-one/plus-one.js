@@ -6,8 +6,7 @@ var plusOne = function(digits) {
     let n = digits.length
     let i = n-1
     let val = 1
-    let flag = true
-    while (flag){
+    while (true){
         let temp = digits[i]+val
         digits[i] = temp%10
         if (temp>=10){
