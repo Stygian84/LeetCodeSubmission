@@ -27,7 +27,7 @@ class Solution:
             if res[0]=="+" or res[0]=="-":
                 res=res[1:]
             temp_ls2=res.split("/")
-            
+            print(temp_ls2)
             c=int(temp_ls2[0])*sign
             d=int(temp_ls2[1])
 
