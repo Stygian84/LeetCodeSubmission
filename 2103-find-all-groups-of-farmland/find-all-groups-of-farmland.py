@@ -8,8 +8,6 @@ class Solution:
         
         def dfs(x,y,bounds):
             seen.add((x, y))
-            bounds[0] = min(bounds[0], x)
-            bounds[1] = min(bounds[1], y)
             bounds[2] = max(bounds[2], x)
             bounds[3] = max(bounds[3], y)
 
