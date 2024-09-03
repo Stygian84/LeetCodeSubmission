@@ -14,9 +14,6 @@ class Solution:
                 ls += [k]*(v//2)
 
         ls.sort(reverse=True)
-
-        while ls and ls[0]=="0":
-            ls = ls[1:]
         
         if maximum!=-1:
             res = ls + [str(maximum)] + ls[::-1]
@@ -25,7 +22,7 @@ class Solution:
         
 
 
-        result = "".join(res)
+        result = "".join(res).lstrip("0").rstrip("0")
         if result:
             return result
         return "0"
