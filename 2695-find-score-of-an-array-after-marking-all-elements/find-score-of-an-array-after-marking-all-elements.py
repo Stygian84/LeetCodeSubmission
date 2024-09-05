@@ -8,11 +8,13 @@ class Solution:
         for i in range(n):
             temp.append((nums[i],i))
         
-        temp.sort(key = lambda x: (-x[0],-x[1]))
-        
+        #temp.sort(key = lambda x: (-x[0],-x[1]))
+        heapq.heapify(temp)
+
         score = 0
         while temp:
-            num,idx = temp.pop()
+            #num,idx = temp.pop()
+            num,idx = heapq.heappop(temp)
             if marked[idx]==True:
                 continue
 
