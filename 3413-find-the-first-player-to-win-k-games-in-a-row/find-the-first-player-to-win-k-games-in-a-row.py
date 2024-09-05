@@ -3,7 +3,7 @@ class Solution:
         
         temp = deque([])
         n = len(skills)
-        if k>n:
+        if k>=n:
             return skills.index(max(skills))
         
         for i in range(n):
