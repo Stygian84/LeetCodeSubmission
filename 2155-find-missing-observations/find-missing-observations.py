@@ -2,7 +2,6 @@ class Solution:
     def missingRolls(self, rolls: List[int], mean: int, n: int) -> List[int]:
         
         total=mean*(len(rolls)+n)-sum(rolls)
-        print(total)
         if total/n>6 or total/n<1:
             return []
 
