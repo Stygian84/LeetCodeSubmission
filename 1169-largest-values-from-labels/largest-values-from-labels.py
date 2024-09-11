@@ -11,7 +11,6 @@ class Solution:
         i = 0
         labels = defaultdict(int)
 
-        print(ls)
         while i<len(ls) and count<numWanted:
             
 
