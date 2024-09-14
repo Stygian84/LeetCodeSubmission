@@ -3,13 +3,12 @@ class Solution:
         maximum = max(nums)
         
         res = 0
-        before = None
-        for i in range(len(nums)):
-            if nums[i]==maximum:
-                if before==None:
-                    before=i
-                else:
-                    res = max(res,i-before)
+        current = 0
+
+        for num in nums:
+            if num==maximum:
+                current+=1
+                res=max(res,current)
             else:
-                before = None
-        return res+1
+                current=0
+        return res
