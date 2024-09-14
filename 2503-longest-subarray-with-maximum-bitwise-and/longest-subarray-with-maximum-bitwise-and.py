@@ -8,7 +8,8 @@ class Solution:
         for num in nums:
             if num==maximum:
                 current+=1
-                res=max(res,current)
+                if current>res:
+                    res = current
             else:
                 current=0
         return res
