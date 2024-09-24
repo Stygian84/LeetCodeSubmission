@@ -8,7 +8,7 @@ class Solution:
             for i in range(len(str_num)):
                 s.add(str_num[:i+1])
         
-        print(s)
+        #print(s)
         res = 0
         for num in arr2:
             str_num = str(num)
