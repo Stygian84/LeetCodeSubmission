@@ -14,7 +14,6 @@ class Solution:
             right = dfs(node.right)
             
             robbed = node.val + left[1] + right[1]
-            # If we do not rob this node, we take the max of either robbing or not robbing its children
             not_robbed = max(left) + max(right)
             
             return (robbed, not_robbed)
