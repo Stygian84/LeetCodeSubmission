@@ -14,6 +14,4 @@ class Solution:
             if additionalRocks<0:
                 break
             res+=1
-            if additionalRocks<=0:
-                break
         return res
