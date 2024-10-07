@@ -13,6 +13,5 @@ class Solution:
                 else:
                     stack.append(item)
             s="".join(stack)
-        print(s)
         return len(s)
         
