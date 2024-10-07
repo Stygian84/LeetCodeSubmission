@@ -4,27 +4,17 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-    
-    let i = 0
-    let j = nums.length-1
+    let res = []
+    let dict = {}
 
-    let ls = []
-    nums.forEach((item,index)=>{
-        ls.push([item,index])
-    })
-    ls.sort( (a,b)=> a[0]-b[0] )
-
-    while (i<j){
-        total = ls[i][0]+ls[j][0]
-        if (total == target){
-            return [ls[i][1],ls[j][1]]
+    for (let i=0; i<nums.length; i++){
+        diff = target-nums[i]
+        if (diff in dict){
+            res.push(dict[diff])
+            res.push(i)
+            break
         }
-        else if (total<target){
-            i++
-        }
-        else{
-            j--
-        }
+        dict[nums[i]]=i
     }
-    console.log(ls)
+    return res
 };
