@@ -14,7 +14,7 @@ var minSwaps = function(s) {
             balance -= 1
         }
         if (balance<0){
-            console.log(s[i],balance,swap)
+            //console.log(s[i],balance,swap)
             swap += 1
             balance+=2
         }
