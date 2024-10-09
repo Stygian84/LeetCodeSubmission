@@ -6,5 +6,5 @@
 var isAnagram = function(s, t) {
     s=s.split("").sort()
     t=t.split("").sort()
-    return s.slice().toString()===t.slice().toString()
+    return s.toString()===t.toString()
 };
