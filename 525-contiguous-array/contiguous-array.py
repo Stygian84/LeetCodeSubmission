@@ -15,17 +15,10 @@ class Solution:
                 prefix[i]+=1
             else:
                 prefix[i]-=1     
+                
             if prefix[i]==0:
-                if first_zero==-1:
-                    first_zero=i
                 longest = i+1
             
-            elif prefix[i]==1:
-                if first_one == -1:
-                    first_one = i
-                last_one = i
-
-        last_zero = longest-1
 
         # find max range prefix that are equal
         dc = defaultdict(int)
