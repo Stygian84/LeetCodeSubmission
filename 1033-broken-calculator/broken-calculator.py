@@ -3,7 +3,7 @@ class Solution:
         # times 2 or minus 1
         #if from target, if divisible by 2 divide by 2 then minus 1
         count = 0
-        if startValue>target:
+        if startValue>=target:
             return startValue-target
 
         while target!=startValue:
