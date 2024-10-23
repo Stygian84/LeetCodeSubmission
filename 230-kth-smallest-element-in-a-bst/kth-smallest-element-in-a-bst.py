@@ -14,5 +14,5 @@ class Solution:
                 ls.append(node.val)
                 traverse(node.right)
         traverse(root)
-        ls.sort()
+        print(ls)
         return ls[k-1]
