@@ -8,9 +8,9 @@ class Solution:
 
         res = []
 
-        for num in nums[::-1]:
-            max_k = (1 << maximumBit) - 1
+        max_k = (1 << maximumBit) - 1
 
+        for num in nums[::-1]:
             res.append(total ^ max_k)
 
             total^=num 
