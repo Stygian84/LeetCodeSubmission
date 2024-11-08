@@ -2,6 +2,14 @@ class Solution:
     def getMaximumXor(self, nums: List[int], maximumBit: int) -> List[int]:
         # find non negative k < 2**maximumBit so that xor all queries + xor k is maximised
         total = 0
+        res = []
+        max_k = (1 << maximumBit) - 1
+        
+        for num in nums:
+            total ^= num
+            res.append(total ^ max_k)
+        return res[::-1]
+        '''total = 0
         for num in nums:
             total ^= num
 
@@ -15,4 +23,4 @@ class Solution:
 
             total^=num 
 
-        return res
+        return res'''
