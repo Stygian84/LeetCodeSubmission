@@ -10,9 +10,9 @@ class Solution:
         #try to slot in in between any consecutive 2 seated seats
         dist = -1
         for i in range(1, len(filled)):
-            if filled[i]-filled[i-1]>1 and filled[i] - filled[i-1]> dist:
-                dist = (filled[i] - filled[i-1]) 
-        dist//=2 #divide by 2 because its in between 2 seats
+            if filled[i]-filled[i-1]>1 and (filled[i] - filled[i-1])//2> dist:
+                dist = (filled[i] - filled[i-1])//2
+        #dist//=2 #divide by 2 because its in between 2 seats
         #check if first seat or last seat is zero, then try to slot in that position
         if seats[0] == 0:
             dist = max(filled[0], dist)
