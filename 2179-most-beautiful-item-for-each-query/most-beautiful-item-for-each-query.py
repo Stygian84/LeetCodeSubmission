@@ -12,7 +12,6 @@ class Solution:
         n = len(temp)
 
         res = []
-        print(temp)
 
         for q in queries:
             l=0
