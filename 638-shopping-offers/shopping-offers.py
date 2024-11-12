@@ -9,7 +9,6 @@ class Solution:
 
         def dfs(total,need):
             nonlocal res
-            print(res,total,need)
             if total>res:
                 return
             if need == [0]*m:
@@ -33,7 +32,6 @@ class Solution:
                     pass
                 else:
                     #fill the non zeroes with price
-                    print(non_zeroes,new_need)
                     temp_total = total+item[-1]
                     for idx in non_zeroes:
                         temp_total += new_need[idx]*price[idx]
