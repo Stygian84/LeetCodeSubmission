@@ -13,7 +13,6 @@ class Solution:
             if len(windows)<k:
                 windows.append(nums[i])
             else:            
-                print(windows)
                 for j in range(1,len(windows)):
                     if windows[j]-windows[j-1]!=1:
                         res.append(-1)
