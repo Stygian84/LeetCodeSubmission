@@ -43,7 +43,6 @@ class Solution:
                 if flag:
                     res += 1
                     continue
-                print(res)
 
         res += 2*(n-len(seen))
         return res
