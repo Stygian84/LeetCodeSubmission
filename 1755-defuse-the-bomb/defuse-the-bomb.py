@@ -1,15 +1,38 @@
 class Solution:
     def decrypt(self, code: List[int], k: int) -> List[int]:
-        result=[0]*len(code)
-        code_2=code*2
-        if k==0:
-            return result
-        elif k>0:
-            for i in range(len(code)):
-                result[i] = sum(code_2[i+1:i+1+k])
-            return result
-        else:
-            for i in range(len(code),len(code_2)):
-                result[i-len(code)] = sum(code_2[i+k:i])
-            return result
         
+        n = len(code)
+
+        if k==0:
+            return [0]*n
+
+        window = deque([])
+        res = []
+        total = 0
+        code += code
+
+        if k > 0:
+            for i in range(2*n):
+                if len(window)<k:
+                    window.append(code[i])
+                    total += code[i]
+                else:
+                    total -= window.popleft()
+                    window.append(code[i])
+                    total += code[i]
+                    res.append(total)
+            return res[:n]
+
+        else:
+            k = abs(k)
+            code.reverse()
+            for i in range(2*n):
+                if len(window)<k:
+                    window.append(code[i])
+                    total += code[i]
+                else:
+                    total -= window.popleft()
+                    window.append(code[i])
+                    total += code[i]
+                    res.append(total)
+            return res[:n][::-1]
