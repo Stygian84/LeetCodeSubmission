@@ -3,9 +3,10 @@ class Solution:
         n = len(nums)
         if n%k!=0:
             return False
+
         nums.sort()
         freq = Counter(nums)
-        count = 0
+        
         for i in range(n):
             if freq[nums[i]]==0:
                 continue
@@ -13,6 +14,6 @@ class Solution:
                 freq[nums[i]+j]-=1
                 if freq[nums[i]+j]<0:
                     return False
-            count+=1
+                    
         
         return True
