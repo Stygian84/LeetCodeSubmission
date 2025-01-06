@@ -1,5 +1,10 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        lowercase_string = s.lower()
-        cleaned_string = re.sub(r'[^a-zA-Z0-9]', '', lowercase_string)
-        return not cleaned_string.find(cleaned_string[::-1])
+        res = []
+        for letter in s:
+            if letter.isalpha():
+                res.append(letter.lower())
+            elif letter.isdigit():
+                res.append(letter)
+        
+        return res==res[::-1]
