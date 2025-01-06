@@ -1,16 +1,21 @@
 class Solution:
     def minOperations(self, boxes: str) -> List[int]:
-        location = defaultdict(int)
+        
+        res = [0]*len(boxes)
 
+        total,count = 0,0
         for i in range(len(boxes)):
-            if boxes[i]=="1":
-                location[i]+=1
+            box = boxes[i]
+            res[i] += total
+            if box=="1":
+                count+=1
+            total+=count
         
-        res = []
-        for i in range(len(boxes)):
-            total = 0
-            for j in location.keys():
-                total += abs(j-i)
-            res.append(total)
-        
+        total,count = 0,0
+        for i in range(len(boxes)-1,-1,-1):
+            box = boxes[i]
+            res[i] += total
+            if box=="1":
+                count+=1
+            total+=count
         return res
