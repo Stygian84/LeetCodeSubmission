@@ -1,21 +1,16 @@
 class Solution:
     def matrixSum(self, nums: List[List[int]]) -> int:
         
-        n = len(nums)
-        m = len(nums[0])
-        total = 0
+        matrix = []
+
+        for row in nums:
+            matrix.append(sorted(row))
         
-        for i in range(n):
-            row = nums[i]
-            row.sort()
-
-        for i in range(m):
-            maximum = 0
-            for j in range(n):
-                number = nums[j][i]
-                if number>maximum:
-                    maximum=number
-
+        total = 0
+        for j in range(len(matrix[0])):
+            maximum = -1
+            for i in range(len(matrix)):
+                maximum = max(maximum,matrix[i][j])
             total+=maximum
         
         return total
