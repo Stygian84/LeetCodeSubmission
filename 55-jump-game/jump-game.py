@@ -1,10 +1,15 @@
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
-        count=0
-        for item in nums:
-            if count <0:
+        count = 1
+        step = nums[0]
+        n = len(nums)
+
+        for i in range(1,n):
+            step-=1
+            if step<0:
                 return False
-            elif item>count:
-                count=item
-            count-=1
+            if nums[i]>step:
+                step = nums[i]
+            
+            
         return True
