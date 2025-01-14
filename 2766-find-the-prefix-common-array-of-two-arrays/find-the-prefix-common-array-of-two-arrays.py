@@ -1,6 +1,30 @@
 class Solution:
     def findThePrefixCommonArray(self, A: List[int], B: List[int]) -> List[int]:
         
+        n = len(A)
+
+        countA = defaultdict(int)
+        countB = defaultdict(int)
+
+        res = [0]
+        for i in range(n):
+            count = 0
+
+            countA[A[i]] += 1
+            countB[B[i]] += 1
+
+            if A[i] == B[i]:
+                count+=1
+            else:
+                if A[i] in countB:
+                    count+=1
+                if B[i] in countA:
+                    count+=1
+            
+            res.append(res[-1]+count)
+        
+        return res[1:]
+        '''
         res=[]
 
         count=0
@@ -20,4 +44,4 @@ class Solution:
             dcB[b]=0
             res.append(count)
         
-        return res
+        return res'''
