@@ -3,32 +3,24 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
+        n = len(nums1)
+        m = len(nums2)
 
-        pointer1,pointer2,write=m-1,n-1,m+n-1
+        j = n-m-1
+        k = m-1
 
-        while pointer2>=0:
-            if pointer1>=0 and nums1[pointer1] > nums2[pointer2]:
-                    nums1[write]=nums1[pointer1]
-                    pointer1-=1
-            else:
-                nums1[write]=nums2[pointer2]
-                pointer2-=1
-            write-=1
-        '''
-        count=0
-        for i in range(m+n):
-            print(i,count)
-            if nums2:
-                if nums1[i]<=nums2[count]:
-                    if nums1[i]==0:
-                        nums1[i]=nums2[count]
-                        count+=1
-                    continue
+        for i in range(n-1,-1,-1):
+            if j>=0 and k>=0:
+                if nums2[k]>nums1[j]:
+                    nums1[i] = nums2[k]
+                    k-=1
                 else:
-                    nums1[m+count],nums1[i]=nums1[i],nums2[count]
-                    count+=1
-                    if count==n:
-                        break
-                    continue
-        return nums1
-        '''
+                    nums1[i] = nums1[j]
+                    j-=1
+            else:
+                if j>=0:
+                    nums1[i] = nums1[j]
+                    j-=1
+                elif k>=0:
+                    nums1[i] = nums2[k]
+                    k-=1
