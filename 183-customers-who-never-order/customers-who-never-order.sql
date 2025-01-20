@@ -1,5 +1,2 @@
-/* Write your PL/SQL query statement below */
-SELECT Customers.name AS Customers
-FROM Customers
-LEFT JOIN Orders ON Customers.id = Orders.customerId
-WHERE Orders.customerId IS NULL;
+# Write your MySQL query statement below
+select name as customers from customers c1 left join orders o1 on c1.id = o1.customerId where o1.id is null
