@@ -5,11 +5,11 @@ class Solution:
         n = len(grid)
         m = len(grid[0])
         res = 0
+        seen = set()
 
         def bfs(start):
             queue = deque([start])
             total = 0
-            seen = set()
             seen.add(start)
 
             while queue:
@@ -25,7 +25,7 @@ class Solution:
 
         for i in range(n):
             for j in range(m):
-                if grid[i][j]!=0:
+                if grid[i][j]!=0 and (i,j) not in seen:
                     result = bfs((i,j))
                     if result>res:
                         res = result
