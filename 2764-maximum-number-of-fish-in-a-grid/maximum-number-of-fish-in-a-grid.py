@@ -7,7 +7,6 @@ class Solution:
         res = 0
 
         def bfs(start):
-            nonlocal res
             queue = deque([start])
             total = 0
             seen = set()
@@ -22,11 +21,12 @@ class Solution:
                     if 0<=nx<n and 0<=ny<m and (nx,ny) not in seen and grid[nx][ny]!=0:
                         queue.append((nx,ny))
                         seen.add((nx,ny))
-            res = max(res,total)
+            return total
 
         for i in range(n):
             for j in range(m):
                 if grid[i][j]!=0:
-                    bfs((i,j))
-        
+                    result = bfs((i,j))
+                    if result>res:
+                        res = result
         return res
