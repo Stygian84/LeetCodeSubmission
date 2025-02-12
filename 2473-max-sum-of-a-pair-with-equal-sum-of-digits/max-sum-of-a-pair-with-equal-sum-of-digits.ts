@@ -11,14 +11,14 @@ function maximumSum(nums: number[]): number {
         if (!storage.has(total)) {
             storage.set(total, nums[i])
         }
-        else{
+        else {
             let compared = storage.get(total)
-            res = Math.max(res,compared+nums[i])
-            if (nums[i]>compared){
-                storage.set(total,nums[i])
+            res = Math.max(res, compared + nums[i])
+            if (nums[i] > compared) {
+                storage.set(total, nums[i])
             }
         }
-        
+
     }
 
     return res
