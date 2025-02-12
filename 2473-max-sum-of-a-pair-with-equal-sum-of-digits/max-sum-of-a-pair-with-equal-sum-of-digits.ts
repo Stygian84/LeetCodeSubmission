@@ -1,6 +1,6 @@
 function maximumSum(nums: number[]): number {
-    nums.sort((a, b) => a - b)
-    let storage = new Map<number, number[]>()
+    let storage = new Map<number, number>()
+    let res = -1
 
     for (let i = 0; i < nums.length; i++) {
         let str_num = nums[i].toString();
@@ -9,17 +9,17 @@ function maximumSum(nums: number[]): number {
             total += Number(digit)
         }
         if (!storage.has(total)) {
-            storage.set(total, [])
+            storage.set(total, nums[i])
         }
-        storage.get(total).push(nums[i])
+        else{
+            let compared = storage.get(total)
+            res = Math.max(res,compared+nums[i])
+            if (nums[i]>compared){
+                storage.set(total,nums[i])
+            }
+        }
+        
     }
 
-    let res = -1
-    storage.forEach((value,key) => {
-        let n = value.length
-        if (n >= 2) {
-            res = Math.max(res, value[n - 1] + value[n - 2])
-        }
-    })
     return res
 };
