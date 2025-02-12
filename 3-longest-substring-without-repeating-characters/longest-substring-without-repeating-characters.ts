@@ -1,16 +1,16 @@
 function lengthOfLongestSubstring(s: string): number {
 
     let res = 0;
-    let temp = [];
+    let left = 0;
+    let index = new Map<string,number>();
 
-    for (let i = 0; i < s.length; i++) {
-        while (temp.includes(s[i])) {
-            temp.shift()
+    for (let right=0;right<s.length;right++){
+        if (index.has(s[right])){
+            left = Math.max(left,index.get(s[right])+1)
         }
-        temp.push(s[i])
-        if (temp.length > res) {
-            res = temp.length
-        }
+        index.set(s[right],right)
+        res = Math.max(res,right-left+1)
+        console.log(left,right)
     }
     return res
 };
