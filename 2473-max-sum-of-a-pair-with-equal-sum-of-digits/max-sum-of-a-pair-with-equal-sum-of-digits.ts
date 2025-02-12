@@ -3,11 +3,13 @@ function maximumSum(nums: number[]): number {
     let res = -1
 
     for (let i = 0; i < nums.length; i++) {
-        let str_num = nums[i].toString();
         let total = 0
-        for (let digit of str_num) {
-            total += Number(digit)
+        let temp = nums[i]
+        while (temp>0){
+            total += temp%10
+            temp = Math.floor(temp/10)
         }
+        
         if (!storage.has(total)) {
             storage.set(total, nums[i])
         }
