@@ -10,7 +10,6 @@ function lengthOfLongestSubstring(s: string): number {
         }
         index.set(s[right],right)
         res = Math.max(res,right-left+1)
-        console.log(left,right)
     }
     return res
 };
